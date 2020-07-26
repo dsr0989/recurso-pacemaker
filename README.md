@@ -1,5 +1,5 @@
 # recurso-pacemaker
-Script sencillo para usar como recurso lsb en pacemaker
+Script sencillo para usar recurso lsb en pacemaker
 
 Agregar con:
 
