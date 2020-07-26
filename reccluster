@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# Description: colocar en /etc/init.d
+#
+
+status() {
+	sap=$(pidof dw.sapGTP_D00)
+	if [ -n "$sap" ]; then
+	      echo "sap esta corriendo !" && exit 0 || exit $?
+	  else
+	      echo "sap no esta corriendo !"
+		  exit 3
+
+	  fi
+
+}
+
+
+CMD=$1
+
+case "$CMD" in
+  'start')
+     /usr/bin/start_sap &
+     sleep 60
+     exit 0
+     ;;
+  'stop')
+     /usr/bin/stop_sap &
+     sleep 60
+     exit 0
+     ;;
+  'status')
+     status
+     ;;
+  *)
+     usage
+     ;;
+esac
+
